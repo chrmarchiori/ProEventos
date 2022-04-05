@@ -1,6 +1,53 @@
-<h1>Eventos do component</h1>
+<h2>Eventos</h2>
 
-<div *ngFor="let evento of eventos">
-  <p><b>Tema:</b> {{evento.tema}}</p>
-  <p><b>Local:</b> {{evento.local}}</p>
-</div>
+<hr>
+
+<form class="row row-cols-lg-auto g-3 align-items-center" action="">
+  <div>
+    <label class="visually-hidden" for="inlineFormInputGroupUsername"></label>
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="buscar" />
+    </div>
+  </div>
+  <div>
+    <button type="submit" class="btn btn-outline-success">Buscar</button>
+  </div>
+</form>
+
+<hr>
+
+<table class="table">
+  <thead class="table-dark">
+    <tr>
+      <th class="text-center" scope="col">#</th>
+      <th class="text-center" scope="col">Imagem</th>
+      <th class="text-center" scope="col">Tema</th>
+      <th class="text-center" scope="col">Local</th>
+      <th class="text-center" scope="col">Data</th>
+      <th class="text-center" scope="col">Qtd Pessoas</th>
+      <th class="text-center" scope="col">Lote</th>
+      <th class="text-center" scope="col">Opções</th>
+    </tr>
+  </thead>
+
+  <tbody *ngIf="eventos && eventos.length">
+    <tr *ngFor="let evento of eventos">
+      <th class="text-center" scope="row">{{evento.eventoId}}</th>
+      <td class="text-center">{{evento.imagemURL}}</td>
+      <td class="text-center">{{evento.tema}}</td>
+      <td class="text-center">{{evento.local}}</td>
+      <td class="text-center">{{evento.dataEvento}}</td>
+      <td class="text-center">{{evento.qtdPessoas}}</td>
+      <td class="text-center">{{evento.lote}}</td>
+      <td class="text-center"></td>
+    </tr>
+  </tbody>
+  <tfoot *ngIf="!eventos.length">
+    <tr>
+      <td colspan="8" class="text-center">
+        <h5>Nenhum evento encontrado!</h5>
+      </td>
+    </tr>
+  </tfoot>
+
+</table>
