@@ -2,25 +2,31 @@
 
 <hr>
 
-<form class="row row-cols-lg-auto g-3 align-items-center" action="">
-  <div>
-    <label class="visually-hidden" for="inlineFormInputGroupUsername"></label>
-    <div class="input-group">
-      <input type="text" class="form-control" placeholder="buscar" />
-    </div>
+<div class="row mb-3">
+  <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Filtro:</label>
+  <div class="col-sm-10">
+    <input
+      type="email"
+      class="form-control form-control-sm"
+      id="colFormLabelSm"
+      placeholder="buscar"
+      [(ngModel)]="filtroLista"
+    >
   </div>
-  <div>
-    <button type="submit" class="btn btn-outline-success">Buscar</button>
-  </div>
-</form>
+</div>
 
-<hr>
+<br>
 
 <table class="table">
   <thead class="table-dark">
     <tr>
+      <th scope="col">
+        <button type="button" class="btn btn-outline-light btn-sm"
+          (click)="alterarImagem()">
+          {{mostrarImg ? 'Mostrar' : 'Ocultar'}}
+        </button>
+      </th>
       <th class="text-center" scope="col">#</th>
-      <th class="text-center" scope="col">Imagem</th>
       <th class="text-center" scope="col">Tema</th>
       <th class="text-center" scope="col">Local</th>
       <th class="text-center" scope="col">Data</th>
@@ -30,16 +36,26 @@
     </tr>
   </thead>
 
-  <tbody *ngIf="eventos && eventos.length">
-    <tr *ngFor="let evento of eventos">
+  <tbody *ngIf="eventos && eventosFiltrados.length">
+    <tr *ngFor="let evento of eventosFiltrados">
+      <td class="text-center">
+        <img [collapse]="mostrarImg"
+          [isAnimated]="true"
+          src="/assets/{{evento.imagemURL}}"
+          [style.width.px] ='larguraImg'
+          [style.margin.px] ='margemImg'
+        >
+      </td>
       <th class="text-center" scope="row">{{evento.eventoId}}</th>
-      <td class="text-center">{{evento.imagemURL}}</td>
       <td class="text-center">{{evento.tema}}</td>
       <td class="text-center">{{evento.local}}</td>
       <td class="text-center">{{evento.dataEvento}}</td>
       <td class="text-center">{{evento.qtdPessoas}}</td>
       <td class="text-center">{{evento.lote}}</td>
-      <td class="text-center"></td>
+      <td class="text-center">
+        <button type="button" class="btn btn-primary btn-sm me-2">Editar</button>
+        <button type="button" class="btn btn-danger btn-sm">Excluir</button>
+      </td>
     </tr>
   </tbody>
   <tfoot *ngIf="!eventos.length">
