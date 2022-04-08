@@ -9,8 +9,8 @@ namespace ProEventos.Application.Contratos
         Task<Evento> UpdateEvento(int eventoId, Evento model);
         Task<bool> DeleteEvento(int eventoId);
 
-        Task<Evento[]> GetAllEventosByTemaAsync(string tema, bool includePalestrantes);
+        Task<Evento[]> GetEventoByTemaAsync(string tema, bool includePalestrantes);
         Task<Evento[]> GetAllEventosAsync(bool includePalestrantes);
-        Task<Evento> GetAllEventosByIdAsync(int EventoId, bool includePalestrantes);
+        Task<Evento> GetEventoByIdAsync(int eventoId, bool includePalestrantes);
     }
 }

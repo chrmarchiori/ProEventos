@@ -24,7 +24,7 @@ namespace ProEventos.Application
                 _geralPersist.Add<Evento>(model);
                 if (await _geralPersist.SaveChangesAsync())
                 {
-                    return await _eventoPersist.GetAllEventosByIdAsync(model.Id, false);
+                    return await _eventoPersist.GetEventoByIdAsync(model.Id, false);
                 }
                 return null;
             }
@@ -38,7 +38,7 @@ namespace ProEventos.Application
         {
             try
             {
-                var evento = await _eventoPersist.GetAllEventosByIdAsync(eventoId, false);
+                var evento = await _eventoPersist.GetEventoByIdAsync(eventoId, false);
                 if (evento == null) return null;
 
                 model.Id = evento.Id;
@@ -47,7 +47,7 @@ namespace ProEventos.Application
 
                 if (await _geralPersist.SaveChangesAsync())
                 {
-                    return await _eventoPersist.GetAllEventosByIdAsync(model.Id, false);
+                    return await _eventoPersist.GetEventoByIdAsync(model.Id, false);
                 }
                 return null;
             }
@@ -61,7 +61,7 @@ namespace ProEventos.Application
         {
             try
             {
-                var evento = await _eventoPersist.GetAllEventosByIdAsync(eventoId, false);
+                var evento = await _eventoPersist.GetEventoByIdAsync(eventoId, false);
                 if (evento == null) throw new Exception("Evento para delete não encontrado");
 
                 _geralPersist.Delete<Evento>(evento);
@@ -73,19 +73,49 @@ namespace ProEventos.Application
             }
         }
 
-        public Task<Evento[]> GetAllEventosAsync(bool includePalestrantes)
+        public async Task<Evento[]> GetAllEventosAsync(bool includePalestrantes)
         {
-            throw new System.NotImplementedException();
+            try
+            {
+                var eventos = await _eventoPersist.GetAllEventosAsync(includePalestrantes);
+                if(eventos == null) return null;
+
+                return eventos;
+            }
+            catch (Exception ex)
+            {                
+                throw new Exception(ex.Message);
+            }
         }
 
-        public Task<Evento> GetAllEventosByIdAsync(int EventoId, bool includePalestrantes)
+        public async Task<Evento> GetEventoByIdAsync(int eventoId, bool includePalestrantes)
         {
-            throw new System.NotImplementedException();
+            try
+            {
+                var eventos = await _eventoPersist.GetEventoByIdAsync(eventoId, includePalestrantes);
+                if(eventos == null) return null;
+
+                return eventos;
+            }
+            catch (Exception ex)
+            {                
+                throw new Exception(ex.Message);
+            }
         }
 
-        public Task<Evento[]> GetAllEventosByTemaAsync(string tema, bool includePalestrantes)
+        public async Task<Evento[]> GetEventoByTemaAsync(string tema, bool includePalestrantes)
         {
-            throw new System.NotImplementedException();
+            try
+            {
+                var eventos = await _eventoPersist.GetEventoByTemaAsync(tema, includePalestrantes);
+                if(eventos == null) return null;
+
+                return eventos;
+            }
+            catch (Exception ex)
+            {                
+                throw new Exception(ex.Message);
+            }
         }
 
         
