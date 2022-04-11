@@ -1,6 +1,4 @@
-<h2>Eventos</h2>
-
-<hr>
+<app-titulo [titulo]="'Eventos'"></app-titulo>
 
 <div class="row mb-3">
   <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Filtro:</label>
@@ -57,7 +55,7 @@
         <button type="button" class="btn btn-primary btn-sm me-2" tooltip="Editar">
           <i class="fa fa-edit"></i>
         </button>
-        <button type="button" class="btn btn-danger btn-sm" tooltip="Excluir">
+        <button type="button" class="btn btn-danger btn-sm" tooltip="Excluir" (click)="openModal(template)">
           <i class="fa fa-trash"></i>
         </button>
       </td>
@@ -76,7 +74,7 @@
 
 <ng-template #template>
   <div class="modal-body text-center">
-    <p>Do you want to confirm?</p>
+    <p>Tem certeza que deseja excluir esse Evento?</p>
     <button type="button" class="btn btn-default" (click)="confirm()" >Sim</button>
     <button type="button" class="btn btn-primary" (click)="decline()" >Não</button>
   </div>
