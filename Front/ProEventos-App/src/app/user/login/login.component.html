@@ -1,19 +1,80 @@
-<div class="d-flex align-items-center vh-100">
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
-	<div class="mx-auto text-center shadow-sm bg-white rounded p-5 my-5">
+<section class="vh-100">
 
-		<form class="form-signin">
-			<i class="fa fa-users mb-2"></i>
-			<h1 class="h3 mb-3 font-weight-normal">Entrar com</h1>
-			<label for="username" class="sr-only">Usuário</label>
-			<input type="email" id="username" class="form-control" placeholder="Usuário" name="username" required>
-			<label for="password" class="sr-only">Password</label>
-			<input type="password" id="password" class="form-control" placeholder="Senha" name="password" required>
-			<button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
-			<p class="mt-4 mb-2 text-muted">Não tem login? Cadastre-se abaixo</p>
-			<a class="btn btn-lg btn-link btn-block">Quero me cadastrar</a>
-		</form>
+  <div class="container-fluid h-custom">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-md-9 col-lg-6 col-xl-5">
+          <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+            class="img-fluid" alt="Sample image">
+        </div>
+        <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
 
-	</div>
+          <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Entrar</p>
 
-</div>
+          <form>
+
+            <div class="d-flex flex-row align-items-center mb-4">
+              <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+              <div class="form-outline flex-fill mb-0">
+                <input placeholder="Informe seu email" type="email" id="form3Example3c" class="form-control" />
+                <!-- <label class="form-label" for="form3Example3c">Your Email</label> -->
+              </div>
+            </div>
+
+            <div class="d-flex flex-row align-items-center mb-4">
+              <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+              <div class="form-outline flex-fill mb-0">
+                <input placeholder="Informe sua senha" type="password" id="form3Example4c" class="form-control" />
+                <!-- <label class="form-label" for="form3Example4c">Password</label> -->
+              </div>
+            </div>
+
+
+            <div class="form-check d-flex justify-content-center mb-5">
+              <div class="form-check mb-0">
+                <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
+                <label class="form-check-label" for="form2Example3">
+                  Lembre-me
+                </label>
+              </div>
+            </div>
+
+            <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+              <button type="button" class="btn btn-primary btn-lg"
+                style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
+            </div>
+
+            <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+              <p class="small fw-bold mt-2 pt-1 mb-0">Não possui uma conta?  <a style="cursor: pointer" routerLink="/user/registration"
+                class="link-danger">Cadastre-se</a></p>
+            </div>
+
+            <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+              <a routerLink="/user/registration" class="text-body">Esqueceu a senha?</a>
+            </div>
+
+            <!-- <div class="d-flex justify-content-between align-items-center">
+
+              <div class="form-check mb-0">
+                <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
+                <label class="form-check-label" for="form2Example3">
+                  Lembre-me
+                </label>
+              </div>
+              <a class="text-body">Esqueceu a senha?</a>
+            </div>
+
+            <div class="text-center text-lg-start mt-4 pt-2">
+              <button type="button" class="btn btn-primary btn-lg"
+                style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
+              <p class="small fw-bold mt-2 pt-1 mb-0">Não possui uma conta?  <a style="cursor: pointer" routerLink="/user/registration"
+                  class="link-danger">Cadastre-se</a></p>
+            </div> -->
+
+          </form>
+        </div>
+      </div>
+    </div>
+
+</section>

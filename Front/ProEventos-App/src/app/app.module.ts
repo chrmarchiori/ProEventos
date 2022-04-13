@@ -30,6 +30,7 @@ import { EventoDetalheComponent } from './components/eventos/evento-detalhe/even
 import { EventoListaComponent } from './components/eventos/evento-lista/evento-lista.component';
 import { UserComponent } from './user/user.component';
 import { RegistrationComponent } from './user/registration/registration.component';
+import { LoginComponent } from './user/login/login.component';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { RegistrationComponent } from './user/registration/registration.componen
     EventoDetalheComponent,
     EventoListaComponent,
     UserComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    LoginComponent
    ],
   imports: [
     BrowserModule,
