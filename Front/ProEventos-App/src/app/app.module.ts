@@ -5,7 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavComponent } from './shared/nav/nav.component';
 
 import { CollapseModule } from 'ngx-bootstrap/collapse';
@@ -67,6 +67,7 @@ import { LoginComponent } from './user/login/login.component';
       progressBar: true
     }),
     NgxSpinnerModule,
+    ReactiveFormsModule
   ],
   providers: [
     EventoService
