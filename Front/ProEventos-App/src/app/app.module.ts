@@ -31,7 +31,13 @@ import { EventoListaComponent } from './components/eventos/evento-lista/evento-l
 import { UserComponent } from './user/user.component';
 import { RegistrationComponent } from './user/registration/registration.component';
 import { LoginComponent } from './user/login/login.component';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
+import { defineLocale } from 'ngx-bootstrap/chronos';
+import { ptBrLocale } from 'ngx-bootstrap/locale';
+
+
+defineLocale('pt-br', ptBrLocale);
 
 @NgModule({
   declarations: [
@@ -67,7 +73,8 @@ import { LoginComponent } from './user/login/login.component';
       progressBar: true
     }),
     NgxSpinnerModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BsDatepickerModule.forRoot(),
   ],
   providers: [
     EventoService
