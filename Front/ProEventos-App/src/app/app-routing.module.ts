@@ -36,7 +36,7 @@ const routes: Routes = [
   { path: 'contatos', component: ContatosComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'palestrantes', component: PalestrantesComponent },
-  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  { path: '', redirectTo: 'user/login', pathMatch: 'full' },
   { path: '**', redirectTo: 'dashboard', pathMatch: 'full' }
 ];
 
