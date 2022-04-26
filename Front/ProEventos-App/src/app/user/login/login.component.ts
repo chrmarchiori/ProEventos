@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
       this.spinner.show();
 
       this.usuarioService
-        .getUsuarioByEmailSenha(this.form.value.email, this.form.value.senha).subscribe(
+        .getUsuarioByEmailSenha(btoa(`${this.form.value.email}:${this.form.value.senha}`)).subscribe(
           () => {
             this.toastr.success("Usuário logado com sucesso", "Sucesso!");
             this.router.navigate(['/dashboard']);

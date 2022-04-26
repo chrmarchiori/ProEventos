@@ -1,6 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using ProEventos.Application.Contratos;
+using ProEventos.Application.Helpers;
 using ProEventos.Domain;
 using ProEventos.Persistence.Contratos;
 
@@ -76,10 +77,14 @@ namespace ProEventos.Application
             }
         }
 
-        public async Task<Usuario> GetUsuarioByEmailSenha(string email, string senha)
+        public async Task<Usuario> GetUsuarioByEmailSenha(string hashCode)
         {
             try
             {
+                string stringEncodada = Geral.Decode64(hashCode);
+                string[] strings = stringEncodada.Split(':');
+                var email = strings[0];
+                var senha = strings[1];
                 var usuario = await _usuarioPersist.GetUsuarioByEmailESenha(email, senha);
                 if (usuario == null) return null;
 
