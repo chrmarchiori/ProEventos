@@ -64,8 +64,6 @@ export class RegistrationComponent implements OnInit {
 
       this.usuario = this.form.value;
 
-      console.log(this.usuario);
-
       this.usuarioService.post(this.usuario).subscribe(
         () => {
           this.toastr.success("Usuário salvo com Sucesso!", "Sucesso!");

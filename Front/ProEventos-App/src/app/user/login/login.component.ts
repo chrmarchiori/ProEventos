@@ -6,6 +6,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { Usuario } from 'src/app/models/Usuario';
 import { UsuarioService } from 'src/app/services/usuario.service';
+import { UsuarioLogado } from 'src/app/shared/usuarioLogado';
 
 @Component({
   selector: 'app-login',
@@ -16,6 +17,7 @@ export class LoginComponent implements OnInit {
 
   form!: FormGroup;
   salvando: boolean = false;
+  usuarioLogado: UsuarioLogado;
 
   get f(): any {
     return this.form.controls;
@@ -44,10 +46,13 @@ export class LoginComponent implements OnInit {
     if (this.form.valid) {
       this.spinner.show();
 
+      localStorage.removeItem('usuarioLogado');
+
       this.usuarioService
         .getUsuarioByEmailSenha(btoa(`${this.form.value.email}:${this.form.value.senha}`)).subscribe(
-          () => {
+          (usuario: Usuario) => {
             this.toastr.success("Usuário logado com sucesso", "Sucesso!");
+            localStorage.setItem('usuarioLogado', JSON.stringify(usuario));
             this.router.navigate(['/dashboard']);
             this.spinner.hide();
           },

@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm" *ngIf="showMenu()">
-  <div class="container-fluid">
+  <div class="container-fluid" (canplay)="atualizarDados()">
     <a class="navbar-brand" routerLink="dashboard">
       <i class="fa fa-users mb-2"></i>
     </a>
@@ -23,14 +23,14 @@
         <li class="nav-item dropdown" dropdown>
           <a dropdownToggle class="nav-link dropdown-toggle" style="cursor: pointer;" id="navbarDropdownMenuLink" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
-            Chrystian
+            {{usuarioLogado.primeiroNome + ' ' + usuarioLogado.ultimoNome}}
           </a>
           <div *dropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <a class="dropdown-item" routerLink="/user/perfil">
               Perfil
             </a>
             <div role="separator" class="divider"></div>
-            <a class="dropdown-item" routerLink="/user/login">
+            <a class="dropdown-item" routerLink="/user/login" (click)="deslogarUsuario()">
               Sair
             </a>
           </div>
