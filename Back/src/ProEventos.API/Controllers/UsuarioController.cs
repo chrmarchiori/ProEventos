@@ -36,13 +36,13 @@ namespace ProEventos.API.Controllers
             }
         }
 
-        [HttpGet("login/{hashCode}")]
-        public async Task<IActionResult> GetByEmailSenha(string hashCode)
+        [HttpPost("{login}")]
+        public async Task<IActionResult> Login(Usuario model)
         {
             try
             {
-                var usuario = await _usuarioService.GetUsuarioByEmailSenha(hashCode);
-                if (usuario == null) return NoContent();
+                var usuario = await _usuarioService.GetUsuarioByEmailSenha(model);
+                if(usuario == null) return NoContent();
 
                 return Ok(usuario);
             }
@@ -53,6 +53,7 @@ namespace ProEventos.API.Controllers
                 );
             }
         }
+
         
         [HttpPost]
         public async Task<IActionResult> Post(Usuario model) 

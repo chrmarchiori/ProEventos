@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
   form!: FormGroup;
   salvando: boolean = false;
   usuarioLogado: UsuarioLogado;
+  usuarioLogin: Usuario;
 
   get f(): any {
     return this.form.controls;
@@ -48,8 +49,10 @@ export class LoginComponent implements OnInit {
 
       localStorage.removeItem('usuarioLogado');
 
+      this.usuarioLogin = this.form.value;
+
       this.usuarioService
-        .getUsuarioByEmailSenha(btoa(`${this.form.value.email}:${this.form.value.senha}`)).subscribe(
+        .getUsuarioByEmailSenha(this.usuarioLogin).subscribe(
           (usuario: Usuario) => {
             this.toastr.success("Usuário logado com sucesso", "Sucesso!");
             localStorage.setItem('usuarioLogado', JSON.stringify(usuario));

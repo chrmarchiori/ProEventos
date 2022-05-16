@@ -18,9 +18,15 @@ export class UsuarioService {
       .pipe(take(1));
   }
 
-  public getUsuarioByEmailSenha(hashcode: String){
+  // public getUsuarioByEmailSenha(hashcode: String){
+  //   return this.http
+  //     .get<Usuario>(`${this.baseUrl}/login/${hashcode}`)
+  //     .pipe(take(1));
+  // }
+
+  public getUsuarioByEmailSenha(usuario: Usuario){
     return this.http
-      .get<Usuario>(`${this.baseUrl}/login/${hashcode}`)
+      .post<Usuario>(`${this.baseUrl}/login/`, usuario)
       .pipe(take(1));
   }
 

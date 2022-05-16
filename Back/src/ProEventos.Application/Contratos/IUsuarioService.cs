@@ -10,6 +10,6 @@ namespace ProEventos.Application.Contratos
         Task<bool> DeleteUsuario(int usuarioId);
 
         Task<Usuario> GetUsuarioById(int usuarioId);
-        Task<Usuario> GetUsuarioByEmailSenha(string hashCode);
+        Task<Usuario> GetUsuarioByEmailSenha(Usuario model);
     }
 }
